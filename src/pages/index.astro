@@ -4,11 +4,13 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 
 <DefaultLayout title="Home Page">
   <h1>LAB.</h1>
-  <div>
-    <a href="/experiment/rococo"><img src="img/rococo.png" alt="rococo" /></a>
-  </div>
-  <div>
-    <a href="/experiment/optic"><img src="img/optic.png" alt="optic" /></a>
+  <div class="grid">
+    <div>
+      <a href="/experiment/rococo"><img src="img/rococo.png" alt="rococo" /></a>
+    </div>
+    <div>
+      <a href="/experiment/optic"><img src="img/optic.png" alt="optic" /></a>
+    </div>
   </div>
 </DefaultLayout>
 
@@ -27,5 +29,26 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
     font-weight: 900;
     letter-spacing: -0.15rem;
     font-size: 33vw;
+    color: black;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0;
+    background-color: #fff;
+    color: #444;
+  }
+
+  .grid div {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 3vw;
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 </style>
