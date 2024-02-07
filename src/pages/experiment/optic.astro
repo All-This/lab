@@ -1,0 +1,228 @@
+---
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+---
+
+<DefaultLayout title="Optic">
+  <div class="grid">
+    <div class="header">
+      <h1>Optic</h1>
+      <div class="header-meta">
+        <p>Optical Effects in Graphic Design</p>
+        <p>Counterprint Books</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="diamond">
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+      </div>
+      <div class="rotating-square"></div>
+    </div>
+
+    <p class="iban">978-1-915392-06-0</p>
+  </div>
+</DefaultLayout>
+
+<style>
+  :root {
+    --stroke-width: 0.25rem;
+    --stroke-border-trans: rgba(255, 255, 255, 0);
+
+    --page-bg: hsl(151, 94%, 63%);
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    background: #fff;
+    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+      Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*   height:100%; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .grid {
+    padding: 1vw 2vw 2vw 1vw;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    /*   max-height:50vh; */
+    flex-direction: column;
+    margin-inline: auto;
+    position: relative;
+
+    background: var(--page-bg);
+    width: 100%;
+    aspect-ratio: 3/4;
+  }
+
+  .header {
+    max-width: 100%;
+    /*   background:yellow; */
+    overflow: hidden;
+  }
+
+  .header-meta {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h1 {
+    font-size: 32vw;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: clamp(-0.05rem, -0.25rem, -0.33rem);
+    line-height: 1;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  p {
+    font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+      Consolas, "DejaVu Sans Mono", monospace;
+    font-weight: normal;
+    letter-spacing: clamp(-0.05rem, -0.1rem, -0.15rem);
+    font-size: clamp(0.475rem, 0.675rem, 0.875rem);
+  }
+
+  .iban {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    line-height: 1;
+    letter-spacing: 0.025rem;
+    font-size: 0.5rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    width: 90%;
+
+    aspect-ratio: 1 / 1;
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 50%;
+  }
+
+  .diamond {
+    grid-column: span 2;
+    grid-row: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    aspect-ratio: 1;
+    /*   transform: rotate(45deg); */
+  }
+
+  .segment {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: repeating-linear-gradient(
+      0deg,
+      #000,
+      #000 var(--stroke-width),
+      var(--stroke-border-trans) var(--stroke-width),
+      var(--stroke-border-trans) calc(2 * var(--stroke-width))
+    );
+  }
+
+  .segment:nth-child(1) {
+    background: repeating-linear-gradient(
+      -135deg,
+      #000,
+      #000 var(--stroke-width),
+      var(--stroke-border-trans) var(--stroke-width),
+      var(--stroke-border-trans) calc(2 * var(--stroke-width))
+    );
+  }
+
+  .segment:nth-child(2) {
+    background: repeating-linear-gradient(
+      135deg,
+      #000,
+      #000 var(--stroke-width),
+      var(--stroke-border-trans) var(--stroke-width),
+      var(--stroke-border-trans) calc(2 * var(--stroke-width))
+    );
+  }
+
+  .segment:nth-child(3) {
+    background: repeating-linear-gradient(
+      -45deg,
+      #000,
+      #000 var(--stroke-width),
+      var(--stroke-border-trans) var(--stroke-width),
+      var(--stroke-border-trans) calc(2 * var(--stroke-width))
+    );
+  }
+
+  .segment:nth-child(4) {
+    background: repeating-linear-gradient(
+      45deg,
+      #000,
+      #000 var(--stroke-width),
+      var(--stroke-border-trans) var(--stroke-width),
+      var(--stroke-border-trans) calc(2 * var(--stroke-width))
+    );
+  }
+
+  .rotating-square {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      #000,
+      #000 var(--stroke-width),
+      var(--stroke-border-trans) var(--stroke-width),
+      var(--stroke-border-trans) calc(2 * var(--stroke-width))
+        /* display:none; */
+    );
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotateSquare 20s linear infinite;
+  }
+
+  @keyframes rotateSquare {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    .grid {
+      max-width: 32rem;
+      height: auto;
+      gap: 2.5vw;
+    }
+
+    h1 {
+      font-size: clamp(4rem, 10rem, 14rem);
+    }
+  }
+</style>
