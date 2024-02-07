@@ -1,19 +1,16 @@
 ---
-
+import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Experiments &mdash; by All This</title>
-  </head>
-  <body>
-    <h1>LAB.</h1>
-  </body>
-</html>
+<DefaultLayout title="Home Page">
+  <h1>LAB.</h1>
+  <div>
+    <a href="/experiment/rococo"><img src="img/rococo.png" alt="rococo" /></a>
+  </div>
+  <div>
+    <a href="/experiment/optic"><img src="img/optic.png" alt="optic" /></a>
+  </div>
+</DefaultLayout>
 
 <style>
   *,
