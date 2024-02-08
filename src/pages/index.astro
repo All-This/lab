@@ -1,26 +1,62 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Card from "../components/Card.astro";
 ---
 
 <DefaultLayout title="Home Page">
   <h1>LAB.</h1>
   <div class="grid">
-    <div>
-      <a href="/experiment/rococo"><img src="img/rococo.png" alt="rococo" /></a>
-    </div>
-    <div>
-      <a href="/experiment/optic"><img src="img/optic.png" alt="optic" /></a>
-    </div>
+    <Card
+      url="https://codepen.io/mieras/full/qBvyMdE"
+      img="https://codepen.io/mieras/pen/qBvyMdE/image/large.png"
+      codepen="qBvyMdE"
+      title="Wormhole"
+      footer="Maarten"
+    />
+    <Card
+      url="https://codepen.io/mieras/full/abMKMVx"
+      img="https://codepen.io/mieras/pen/abMKMVx/image/large.png"
+      codepen="abMKMVx"
+      title="Rococo"
+      footer="Maarten"
+    />
+    <Card
+      url="https://codepen.io/mieras/full/JjzZXVw"
+      img="https://codepen.io/mieras/pen/JjzZXVw/image/large.png"
+      codepen="abMKMVx"
+      title="Optic Magazine"
+      footer="Maarten"
+    />
+
+    <Card
+      url="https://codepen.io/mieras/full/GReQpew"
+      img="https://codepen.io/mieras/pen/GReQpew/image/large.png"
+      codepen="GReQpew"
+      title="Rotating Text"
+      footer="Maarten + Kirupa"
+    />
   </div>
 </DefaultLayout>
 
-<style>
+<style is:global>
+  :root {
+    --grid-border: 1px solid rgb(220, 220, 220);
+  }
+
   *,
   *:before,
   *:after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+      Arial, sans-serif;
+    font-weight: normal;
   }
 
   h1 {
@@ -45,17 +81,17 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 
   .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 0;
-    background-color: #fff;
-    color: #444;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    border-top: var(--grid-border);
+    border-left: var(--grid-border);
+    width: 100%;
   }
-
-  .grid div {
+  .grid__item {
+    border-right: var(--grid-border);
+    border-bottom: var(--grid-border);
     display: flex;
-    justify-items: center;
-    align-items: center;
+    flex-direction: column;
     padding: 3vw;
-    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 </style>
