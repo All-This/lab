@@ -1,0 +1,126 @@
+---
+interface Props {
+  title?: string;
+  url?: string;
+  codepen?: string;
+  img?: string;
+  datauser?: string;
+  datazoom?: string;
+  dataslughash: string;
+}
+
+const {
+  title = "Default title",
+  url = "#",
+  codepen = "",
+  datazoom = "0.5",
+  datauser = "Mieras",
+  dataslughash = "",
+} = Astro.props;
+---
+
+<div class="card grid__item">
+  <p
+    class="codepen"
+    data-height="100%"
+    data-theme-id="light"
+    data-default-tab="result"
+    data-user={datauser}
+    data-slug-hash={dataslughash}
+    style="height: 100%; width:100%; box-sizing: border-box;"
+    data-pen-title={title}
+    data-zoom={datazoom}
+  >
+  </p>
+</div>
+
+<style is:global>
+  :root {
+    --shadow-color: 0deg 0% 60%;
+    --shadow-elevation-low: 0.2px 0.5px 0.7px hsl(var(--shadow-color) / 0.28),
+      0.4px 0.9px 1.2px -0.9px hsl(var(--shadow-color) / 0.34),
+      1px 2.2px 3px -1.8px hsl(var(--shadow-color) / 0.4);
+    --shadow-elevation-medium: 0.2px 0.5px 0.7px hsl(var(--shadow-color) / 0.23),
+      0.8px 1.6px 2.2px -0.5px hsl(var(--shadow-color) / 0.26),
+      1.4px 3.1px 4.2px -0.9px hsl(var(--shadow-color) / 0.3),
+      2.7px 6px 8px -1.4px hsl(var(--shadow-color) / 0.33),
+      5.1px 11.1px 14.9px -1.8px hsl(var(--shadow-color) / 0.36);
+    --shadow-elevation-high: 0.2px 0.5px 0.7px hsl(var(--shadow-color) / 0.24),
+      1.7px 3.6px 4.9px -0.2px hsl(var(--shadow-color) / 0.26),
+      3px 6.5px 8.8px -0.5px hsl(var(--shadow-color) / 0.28),
+      4.6px 9.9px 13.3px -0.7px hsl(var(--shadow-color) / 0.29),
+      6.7px 14.5px 19.5px -0.9px hsl(var(--shadow-color) / 0.31),
+      9.6px 20.9px 28.1px -1.2px hsl(var(--shadow-color) / 0.33),
+      13.7px 29.8px 40.1px -1.4px hsl(var(--shadow-color) / 0.35),
+      19.3px 41.9px 56.4px -1.6px hsl(var(--shadow-color) / 0.37),
+      26.7px 57.9px 77.9px -1.8px hsl(var(--shadow-color) / 0.39);
+  }
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    background: #fff;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    box-shadow: var(--shadow-elevation-high);
+    z-index: 5;
+    /* border-color: rgba(255,255,255,0); */
+    transform: scale(1.00125);
+  }
+
+  .card:focus-within a:focus {
+    text-decoration: none;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .card__image {
+  }
+
+  .card__image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .card__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .card__content a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .card__content a:focus {
+    text-decoration: underline;
+  }
+
+  .card__content a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  .card__content:last-child {
+    margin-top: auto;
+    padding-top: 2rem;
+  }
+
+  .card__content footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.675rem;
+    color: #ccc;
+  }
+</style>

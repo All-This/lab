@@ -1,137 +1,113 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import Card from "../components/Card.astro";
+import EmbedCodepen from "../components/EmbedCodepen.astro";
 ---
 
 <DefaultLayout title="LAB">
   <h1>LAB.</h1>
   <div class="grid">
-    <Card
+    <EmbedCodepen
       url="https://codepen.io/mieras/full/qBvyMdE"
       img="https://codepen.io/mieras/pen/qBvyMdE/image/large.png"
-      codepen="qBvyMdE"
-      title="Wormhole"
-      footer="Mieras"
+      title="Rotating Text"
+      datauser="Mieras"
+      dataslughash="qBvyMdE"
     />
-    <Card
+    <EmbedCodepen
       url="https://codepen.io/mieras/full/abMKMVx"
       img="https://codepen.io/mieras/pen/abMKMVx/image/large.png"
-      codepen="abMKMVx"
-      title="Rococo"
-      footer="Maarten"
+      title="Rotating Text"
+      datauser="Mieras"
+      dataslughash="abMKMVx"
     />
-    <Card
+
+    <EmbedCodepen
       url="https://codepen.io/mieras/full/JjzZXVw"
       img="https://codepen.io/mieras/pen/JjzZXVw/image/large.png"
-      codepen="abMKMVx"
-      title="Optic Magazine"
-      footer="Maarten"
+      title="Rotating Text"
+      datauser="Mieras"
+      dataslughash="JjzZXVw"
     />
-
-    <Card
+    <EmbedCodepen
       url="https://codepen.io/mieras/full/GReQpew"
       img="https://codepen.io/mieras/pen/GReQpew/image/large.png"
-      codepen="GReQpew"
       title="Rotating Text"
-      footer="Maarten + Kirupa"
+      datauser="Mieras"
+      dataslughash="GReQpew"
+      datazoom="1"
     />
-    <div class="grid__item">
-      <iframe
-        class="embed"
-        title="Wormhole"
-        src="https://codepen.io/mieras/embed/qBvyMdE?default-tab=result&theme-id=light"
-        frameborder="no"
-        loading="lazy"
-        allowtransparency="true"
-        allowfullscreen="true"></iframe>
-    </div>
-
-    <div class="grid__item">
-      <iframe
-        class="embed"
-        title="Optic Magazine Cover"
-        src="https://codepen.io/mieras/embed/JjzZXVw?default-tab=result&theme-id=light"
-        frameborder="no"
-        loading="lazy"
-        allowtransparency="true"
-        allowfullscreen="true"></iframe>
-    </div>
-    <div class="grid__item">
-      <iframe
-        class="embed"
-        scrolling="no"
-        title="Flyer • Rococo"
-        src="https://codepen.io/mieras/embed/abMKMVx?default-tab=result&theme-id=light"
-        frameborder="no"
-        loading="lazy"
-        allowtransparency="true"
-        allowfullscreen="true"
-      >
-      </iframe>
-    </div>
   </div>
+
+  <style is:global>
+    :root {
+      --grid-border: 1px solid rgb(220, 220, 220);
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+        Arial, sans-serif;
+      font-weight: normal;
+    }
+
+    h1 {
+      font-family:
+        Inter,
+        Inter Tight,
+        Roboto,
+        "Helvetica Neue",
+        "Arial Nova",
+        "Nimbus Sans",
+        Arial,
+        sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.15rem;
+      font-size: 33vw;
+      color: black;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
+      grid-template-rows: repeat(3, 1fr);
+      border-top: var(--grid-border);
+      border-left: var(--grid-border);
+      width: 100%;
+    }
+    .grid__item {
+      border-right: var(--grid-border);
+      border-bottom: var(--grid-border);
+      display: flex;
+      flex-direction: column;
+      padding: 3vw;
+    }
+
+    .embed,
+    .codepen {
+      aspect-ratio: 4/3;
+      width: 100%;
+      height: auto;
+    }
+
+    .cp_embed_wrapper {
+      height: 100%;
+      aspect-ratio: 4/3;
+    }
+  </style>
+
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 </DefaultLayout>
-
-<style is:global>
-  :root {
-    --grid-border: 1px solid rgb(220, 220, 220);
-  }
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
-      Arial, sans-serif;
-    font-weight: normal;
-  }
-
-  h1 {
-    font-family:
-      Inter,
-      Inter Tight,
-      Roboto,
-      "Helvetica Neue",
-      "Arial Nova",
-      "Nimbus Sans",
-      Arial,
-      sans-serif;
-    font-weight: 900;
-    letter-spacing: -0.15rem;
-    font-size: 33vw;
-    color: black;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-template-rows: repeat(3, 1fr);
-    border-top: var(--grid-border);
-    border-left: var(--grid-border);
-    width: 100%;
-  }
-  .grid__item {
-    border-right: var(--grid-border);
-    border-bottom: var(--grid-border);
-    display: flex;
-    flex-direction: column;
-    padding: 3vw;
-  }
-
-  .embed {
-    aspect-ratio: 4/3;
-    width: 100%;
-    height: auto;
-  }
-</style>
